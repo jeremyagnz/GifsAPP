@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  url:'http://api.giphy.com/v1/gifs/search?api_key=OLUut0emGgPGFFjFt08iLePwz3kbElWv&q=dragon ball z&limit=30'
 };
 
 /*
