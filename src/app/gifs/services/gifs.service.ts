@@ -9,6 +9,8 @@ export class GifsService {
   private apiKey: string = 'OLUut0emGgPGFFjFt08iLePwz3kbElWv';
   private _historial: string[] = [];
 
+  public resultados: any[] = []
+
   get historial() {
     return [...this._historial];
   }
@@ -22,7 +24,9 @@ export class GifsService {
       this._historial.unshift(query);
       this._historial = this._historial.splice(0, 10);
     }
-    this.http.get(`${environment.url}`)
-             .subscribe( (resp:any) => {console.log(resp.data)});
+    this.http.get(`${environment.url}${query}&limit=30`).subscribe((resp: any) => {
+      console.log(resp.data);
+      this.resultados = resp.data;
+    });
   }
 }
