@@ -32,8 +32,7 @@ export class GifsService {
     }
     this.http
       .get<SearchGifsResponse>(`${environment.url}${query}&limit=30`)
-      .subscribe( resp => {
-        console.log(resp.data);
+      .subscribe((resp) => {
         this.resultados = resp.data;
         localStorage.setItem('resultados', JSON.stringify(this.resultados));
       });
